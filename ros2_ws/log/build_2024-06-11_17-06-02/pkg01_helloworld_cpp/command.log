@@ -1,0 +1,6 @@
+Invoking command in '/home/cjs/my_ros2_note/ros2_ws/build/pkg01_helloworld_cpp': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/cjs/my_ros2_note/ros2_ws/src/pkg01_helloworld_cpp -DCMAKE_INSTALL_PREFIX=/home/cjs/my_ros2_note/ros2_ws/install/pkg01_helloworld_cpp
+Invoked command in '/home/cjs/my_ros2_note/ros2_ws/build/pkg01_helloworld_cpp' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/cjs/my_ros2_note/ros2_ws/src/pkg01_helloworld_cpp -DCMAKE_INSTALL_PREFIX=/home/cjs/my_ros2_note/ros2_ws/install/pkg01_helloworld_cpp
+Invoking command in '/home/cjs/my_ros2_note/ros2_ws/build/pkg01_helloworld_cpp': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/cjs/my_ros2_note/ros2_ws/build/pkg01_helloworld_cpp -- -j4 -l4
+Invoked command in '/home/cjs/my_ros2_note/ros2_ws/build/pkg01_helloworld_cpp' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/cjs/my_ros2_note/ros2_ws/build/pkg01_helloworld_cpp -- -j4 -l4
+Invoking command in '/home/cjs/my_ros2_note/ros2_ws/build/pkg01_helloworld_cpp': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/cjs/my_ros2_note/ros2_ws/build/pkg01_helloworld_cpp
+Invoked command in '/home/cjs/my_ros2_note/ros2_ws/build/pkg01_helloworld_cpp' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/cjs/my_ros2_note/ros2_ws/build/pkg01_helloworld_cpp

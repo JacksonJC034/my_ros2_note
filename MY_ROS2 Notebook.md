@@ -46,12 +46,12 @@ Better performance and adaptability for **Swarm Robotics**, small firmware platf
 
 ## Hello World!
 
-### C++
+### <u>C++</u>
 
 #### 1. Create package:
 
 ```bash
-cd ~/ROS2_ws/src
+cd ~/ros2_ws/src
 ros2 pkg create pkg01_helloworld_cpp --build-type ament_cmake --dependencies rclcpp --node-name helloworld
 ```
 
@@ -133,14 +133,137 @@ if(BUILD_TESTING)
 	# comment the line when a copyright and license is added to all source files
 	set(ament_cmake_copyright_FOUND TRUE)
 	# the following line skips cpplint (only works in a git repo)
-	# 
+	# comment the line when this package is in a git repo and when
+	# a copyright and license is added to all source files
+	set(ament_cmake_cpplint_FOUND TRUE)
+	ament_lint_auto_find_test_dependencies()
+endif()
+
+ament_package()	
 ```
 
+#### 5. Compile
 
+```bash
+cd ros2_ws
+colcon build
+```
+
+#### 6. Run
+
+```bash
+source install/setup.bash (. install/setup.bash)
+ros2 run pkg01_helloworld_cpp helloworld
+```
+
+### <u>Python</u>
+
+#### 1. Create package
+
+```bash
+cd ros2_ws/src
+ros2 pkg create pkg02_helloworld_py --build-type ament_python --dependencies rclpy --node-name helloworld
+```
+
+#### 2. Edit source_code.py
 
 ```python
+import rclpy
 
+def main():
+    # initialize ROS2
+    rclpy.init()
+    # create node
+    node = rclpy.create_node("helloworld_py_node")
+    # output text
+    node.get_logger().info("hello world!")
+    # release resource
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
 ```
+
+#### 3. package.xml
+
+```xml
+<?xml version="1.0"?><?xml-model
+href="http://download.ros.org/schema/package_format3.xsd"
+schematypens="http://www.w3.org/2001/XMLSchema"?><package format="3">
+  <name>pkg02_helloworld_py</name> <!-- 1 -->
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="your_email@domain.com">ros2</maintainer>
+  <license>TODO: License declaration</license>
+  
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  
+  <!-- Required Dependencies: Change per your dependencies-->
+  <depend>rclpy</depend> <!-- 2 -->
+  
+  <!-- 3 -->
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+  
+  <export>
+    <build_type>ament_python</build_type> <!-- 4 -->
+  </export></package>
+```
+
+#### 4. setup.py
+
+```python
+from setuptools import setup
+
+package_name = 'pkg02_helloworld_py'
+
+setup(
+    name = package_name,
+    version = '0.0.0',
+    packages = [package_name],
+    data_files = [
+        ('share/ament_index/resource_index/packages'),
+        	['resource/' + package_name],
+        ('share/' + package+name, ['package.xml']),
+    ],
+    install_requires = ['setuptools'],
+    zip_safe = True,
+    maintainer = 'your_name',
+    maintainer_email = 'your_email@domain.com',
+    description = 'Package description',
+    license = 'License declaration',
+    tests_require = ['pytest'],
+    entry_points = {
+        'console_scripts':[
+            # Map source code and executable
+            'helloworld = pkg02_helloworld_py.helloworld:main'
+        ],
+	},
+)
+```
+
+#### 5. Compile
+
+```bash
+colcon build
+```
+
+#### 6. Run
+
+```bash
+source install/setup.bash (. install/setup.bash)
+ros2 run pkg02_helloworld_py helloworld
+```
+
+### Optimization
+
+```bash
+echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
+```
+
+## ROS2 File System
 
 
 
